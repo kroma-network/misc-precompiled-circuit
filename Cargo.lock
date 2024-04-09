@@ -70,6 +70,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8d696c370c750c948ada61c69a0ee2cbbb9c50b1019ddb86d9317157a99c2cae"
 
 [[package]]
+name = "bls12_381"
+version = "0.8.0"
+source = "git+https://github.com/kroma-network/bls12_381?branch=feat/upstream-scroll-v0.10.0rc3#0bec3a5ed5966342ac637ad2f574dd9a103232ff"
+dependencies = [
+ "ff",
+ "group",
+ "pairing",
+ "pasta_curves",
+ "rand_core",
+ "subtle",
+]
+
+[[package]]
 name = "cfg-if"
 version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -230,7 +243,7 @@ dependencies = [
 [[package]]
 name = "halo2-gate-generator"
 version = "0.1.0"
-source = "git+https://github.com/scroll-tech/halo2gategen#8ccf462e1eff4ed0e602d7ba19771b2c53dee0e3"
+source = "git+https://github.com/kroma-network/halo2gategen?branch=feat/upstream-scroll-v0.10.0rc3#54d6ca97f7f33ef9a60fedda1e288b7533fa2a56"
 dependencies = [
  "halo2_proofs",
  "lazy_static",
@@ -245,8 +258,8 @@ dependencies = [
 
 [[package]]
 name = "halo2_proofs"
-version = "0.2.0"
-source = "git+https://github.com/scroll-tech/halo2.git?branch=v1.0#44dbed4515984bbc14cb8283e273794b03c28afa"
+version = "1.1.0"
+source = "git+https://github.com/kroma-network/halo2.git?branch=feat/upstream-scroll-v0.10.0rc3#fc703d2ad0ce4f0e26637cc8bc27842500baaf3d"
 dependencies = [
  "ark-std",
  "blake2b_simd",
@@ -256,9 +269,11 @@ dependencies = [
  "group",
  "halo2curves",
  "log",
+ "maybe-rayon",
  "num-bigint",
  "num-integer",
  "poseidon",
+ "rand_chacha",
  "rand_core",
  "rayon",
  "sha3",
@@ -269,13 +284,14 @@ dependencies = [
 [[package]]
 name = "halo2curves"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e6b1142bd1059aacde1b477e0c80c142910f1ceae67fc619311d6a17428007ab"
+source = "git+https://github.com/kroma-network/halo2curves.git?branch=feat/upstream-scroll-v0.10.0rc3#dcb8aff5721fe9d82f9960a65800769794b4f75f"
 dependencies = [
  "blake2b_simd",
+ "bls12_381",
  "ff",
  "group",
  "lazy_static",
+ "maybe-rayon",
  "num-bigint",
  "num-traits",
  "pasta_curves",
@@ -329,6 +345,16 @@ name = "log"
 version = "0.4.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
+
+[[package]]
+name = "maybe-rayon"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8ea1f30cedd69f0a2954655f7188c6a834246d2bcf1e315e2ac40c4b24dc9519"
+dependencies = [
+ "cfg-if 1.0.0",
+ "rayon",
+]
 
 [[package]]
 name = "memoffset"
@@ -398,6 +424,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "624a8340c38c1b80fd549087862da4ba43e08858af025b236e509b6649fc13d5"
 
 [[package]]
+name = "pairing"
+version = "0.23.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "81fec4625e73cf41ef4bb6846cafa6d44736525f442ba45e407c4a000a13996f"
+dependencies = [
+ "group",
+]
+
+[[package]]
 name = "pasta_curves"
 version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -427,7 +462,7 @@ checksum = "8afb450f006bf6385ca15ef45d71d2288452bc3683ce2e2cacc0d18e4be60b58"
 [[package]]
 name = "poseidon"
 version = "0.2.0"
-source = "git+https://github.com/scroll-tech/poseidon.git?branch=main#5787dd3d2ce7a9e9601a035c396ac0c03449b54d"
+source = "git+https://github.com/kroma-network/poseidon.git?branch=feat/upstream-scroll-v0.10.0rc3#4e419eb05a06783957df5ff751181cbf72ceb943"
 dependencies = [
  "halo2curves",
  "subtle",
